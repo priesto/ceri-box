@@ -35,15 +35,27 @@
                 <div class="card-body">
                     <div class="card-body-row">
                         <label for="ip">IP</label>
-                        <input class="card-input" name="ip" />
+                        <?php
+                            $ret = shell_exec("grep address /etc/network/interfaces");
+                            $res = preg_grep('/\d*\.\d*\.\d*\.\d*/', explode(' ', $ret));
+                            echo '<input class="card-input" name="ip" value="' . $res[1] . '" />';
+                        ?>
                     </div>
                     <div class="card-body-row">
                         <label for="mask">Masque</label>
-                        <input class="card-input" name="mask" />
+                        <?php
+                            $ret = shell_exec("grep netmask /etc/network/interfaces");
+                            $res = preg_grep('/\d*\.\d*\.\d*\.\d*/', explode(' ', $ret));
+                            echo '<input class="card-input" name="mask" value="' . $res[1] . '" />';
+                        ?>
                     </div>
                     <div class="card-body-row">
                         <label for="gateway">Passerelle</label>
-                        <input class="card-input" name="gateway" />
+                        <?php
+                            $ret = shell_exec("grep gateway /etc/network/interfaces");
+                            $res = preg_grep('/\d*\.\d*\.\d*\.\d*/', explode(' ', $ret));
+                            echo '<input class="card-input" name="gateway" value="' . $res[1] . '" />';
+                        ?>
                     </div>
                     <input type="submit" class="card-submit" value="Appliquer" />
                 </div>
@@ -58,7 +70,7 @@
                         <input class="card-input" name="ip-first" />
                     </div>
                     <div class="card-body-row">
-                        <label for="ip-last">Dernieère adresse</label>
+                        <label for="ip-last">Dernière adresse</label>
                         <input class="card-input" name="ip-last" />
                     </div>
                     <div class="card-body-row">
