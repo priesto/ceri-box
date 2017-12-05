@@ -9,3 +9,15 @@ function openTab(e, tab) {
     e.currentTarget.className += "tab-active";
     
 }
+
+function validateIp(e) {
+    const re = /^(\d{0,3}\.\d{0,3}\.\d{0,3}\.\d{0,3})$/;
+
+    console.log(e.value);
+
+    if(!re.test(e.value)) {
+        e.style = "border: 1px solid red;";
+    } else {
+        e.style = "border: 0.5px solid #e8e8e8;";
+    }
+}

@@ -44,11 +44,16 @@ li:hover {
     background: #FCFCFC;
 }
 
+
 #reseaux, #firewall, #debit, #email {
     display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+#reseaux {
+    display: flex;
 }
 
 .tab {
@@ -106,9 +111,13 @@ li:hover {
     color: white;
     width: 120px;
     border-radius: 3px;
-    margin: 15px 0px 0px 365px;
+    margin: 20px 0px 20px 15px;
+    float: right;
 }
 
 .card-submit:hover {
     background: rgb(5, 100, 145)
 }
+
+input:focus { outline: none; }
+input::-moz-focus-inner { border: 0; }

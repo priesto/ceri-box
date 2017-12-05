@@ -38,7 +38,7 @@
                         <?php
                             $ret = shell_exec("grep address /etc/network/interfaces");
                             $res = preg_grep('/\d*\.\d*\.\d*\.\d*/', explode(' ', $ret));
-                            echo '<input class="card-input" name="ip" value="' . $res[1] . '" />';
+                            echo '<input class="card-input" name="ip" value="' . $res[1] . '" onkeyup="validateIp(this)"/>';
                         ?>
                     </div>
                     <div class="card-body-row">
@@ -46,7 +46,7 @@
                         <?php
                             $ret = shell_exec("grep netmask /etc/network/interfaces");
                             $res = preg_grep('/\d*\.\d*\.\d*\.\d*/', explode(' ', $ret));
-                            echo '<input class="card-input" name="mask" value="' . $res[1] . '" />';
+                            echo '<input class="card-input" name="mask" value="' . $res[1] . '" onkeyup="validateIp(this)"/>';
                         ?>
                     </div>
                     <div class="card-body-row">
@@ -54,10 +54,11 @@
                         <?php
                             $ret = shell_exec("grep gateway /etc/network/interfaces");
                             $res = preg_grep('/\d*\.\d*\.\d*\.\d*/', explode(' ', $ret));
-                            echo '<input class="card-input" name="gateway" value="' . $res[1] . '" />';
+                            echo '<input class="card-input" name="gateway" value="' . $res[1] . '" onkeyup="validateIp(this)"/>';
                         ?>
                     </div>
-                    <input type="submit" class="card-submit" value="Appliquer" />
+                    <input type="submit" class="card-submit" id="submit-adressage" value="Appliquer" />
+                    <input type="submit" class="card-submit" value="Réinitialiser" />
                 </div>
             </div>
 
